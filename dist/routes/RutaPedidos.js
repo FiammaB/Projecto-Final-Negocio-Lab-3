@@ -1,0 +1,13 @@
+import { Router } from 'express';
+import { PedidoController } from '../controllers/CtrlPedido.js';
+const router = Router();
+const controller = new PedidoController();
+router.get('/', controller.getAll);
+router.get('/:id', controller.getById);
+router.post('/', controller.create);
+router.put('/:id', controller.update);
+router.delete('/:id', controller.delete);
+router.get('/comprobante/:nroComprobante', controller.getByNroComprobante);
+router.get('/rangoFecha/fecha', controller.getByDateRange);
+router.get('/pdf/pdf', controller.generarPDF);
+export default router;
